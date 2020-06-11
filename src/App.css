@@ -49,3 +49,16 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.child {
+  color: green;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.delete{
+  margin-left: 600px;
+}
+.siderLink{
+  color:#fff;
+}
