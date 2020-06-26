@@ -95,27 +95,28 @@ class CollectionData extends React.Component {
     };
 
     let myId;
-    let isimbulamadim;
+    let isId;
 
     const getContent = (json) => {
       return Object.keys(json).map((key) => {
         return Object.keys(json[key]).map((csdhild) => {
           if (csdhild==="_id") {
             myId = json[key][csdhild]
-            isimbulamadim = true;
+            isId = true;
           }else{
-            isimbulamadim = false;
+            isId = false;
           }
           return (
             
             <div>
               <div className="child" > {csdhild}  : </div> {json[key][csdhild]}
               
-                { isimbulamadim ? <div className="delete"> <Button id={myId} onClick={this.deleteData}><DeleteIcon/></Button></div> : <div></div>}
+             { isId ? <div className="delete"> <Button id={myId} onClick={this.deleteData}><DeleteIcon/></Button></div> : <div></div>}
             </div>
+            
           );  
         });
-      });
+      }); 
     };
 
     return (
@@ -125,11 +126,9 @@ class CollectionData extends React.Component {
           dataSource={getContent(this.state.data)}
           renderItem={(item) => (
             <List.Item>
-
               <div>
                 {item}
               </div>
-               
             </List.Item>
           )}
         />
@@ -144,7 +143,7 @@ class CollectionData extends React.Component {
           placeholder="
         ''_id'':''örnek'',
         ''isim'':''örnek veri''
-      "
+         "
         />
         <br />
         <Button type="primary" onClick={addModel}>
